@@ -3,8 +3,9 @@ public class Calculator{
     public String calcModel;
     
     //constructor that creates an instance of the calculator class
-    public Calculator() {
+    public Calculator(String calcModel) {
         //implement code here
+        this.calcModel = calcModel;
     }
     
     // method that performs the operation designated by operand (which
@@ -16,7 +17,17 @@ public class Calculator{
     // (THIS METHOD DOES NOT PRINT)
     public double performOperation(String operand, int num1, int num2) {
         //implement code here
-        return 0.00;
+        if (operand.equals("+")) {
+            return num1 + num2;
+        } else if (operand.equals("-")) {
+            return num1 - num2;
+        } else if (operand.equals("*")) {
+            return num1 * num2;
+        } else if (operand.equals("/")) {
+            return num1 / num2;
+        } else {
+            return 0;
+        }
     }
 
     // method that checks if num1 is evenly divisible by num2, and if so,
@@ -24,7 +35,11 @@ public class Calculator{
     // (THIS METHOD DOES NOT PRINT)
     public boolean divisibleBy(int num1, int num2) {
         //implement code here
-        return false;
+        if (num1 % num2 == 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     // method that constructs and returns a string representing a coordinate
@@ -32,13 +47,13 @@ public class Calculator{
     // (THIS METHOD DOES NOT PRINT)
     public String coordinatePair(int x, int y) {
         //implement code here
-        return "";
+        return "(" + x + "," + y + ")";
     }
     // method that determines and returns the result of |num1 - num2|
     // (THIS METHOD DOES NOT PRINT)
     public int absoluteValue(int num1, int num2) {
-        //implement code here
-        return 0;
+        int d = num1 - num2;
+        return d < 0 ? -d : d;
     }
     
     // method that constructs and returns a String in the format:
@@ -47,6 +62,7 @@ public class Calculator{
     // (THIS METHOD DOES NOT PRINT)
     public String info() {
         //implement code here
-        return "";
+        return "This calculator is a model " + this.calcModel + " where " + this.calcModel + 
+        " should be filled in with the value stored in the calcModel instance variable.";
     }
 }
